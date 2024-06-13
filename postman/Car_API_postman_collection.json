@@ -177,6 +177,7 @@
 				{
 					"listen": "test",
 					"script": {
+						"id": "0b29d80f-2cea-47a0-9ab5-ede1751f037b",
 						"exec": [
 							"var jsonData = pm.response.json();",
 							"",
@@ -189,6 +190,7 @@
 							"} else {",
 							"    throw new Error(\"No brands found in the response.\");",
 							"}",
+							"",
 							"(function() {",
 							"    const tests = {",
 							"        basic: () => {",
@@ -210,7 +212,7 @@
 							"            const brands = [\"Audi\", \"BMW\", \"Ford\", \"Porsche\", \"Fiat\"];",
 							"            const receivedBrands = jsonData.data.map(brand => brand.title);",
 							"            pm.test(\"Response body contains expected car brands\", () => pm.expect(receivedBrands).to.have.members(brands));",
-							"            jsonData.data.forEach(brand => pm.test(\"Each brand has id, title, and logoFilename\", () => pm.expect(brand).to.have.keys(['id', 'title', 'logoFilename'])));",
+							"            jsonData.data.forEach(brand => pm.test(`Brand ${brand.title} (ID: ${brand.id}) has id, title, and logoFilename`, () => pm.expect(brand).to.have.keys(['id', 'title', 'logoFilename'])));",
 							"        },",
 							"        network: () => {",
 							"            const jsonData = pm.response.json();",
@@ -239,14 +241,31 @@
 							"            pm.test(\"Content-Encoding supports gzip\", () => pm.expect(pm.request.headers.get('accept-encoding')).to.include('gzip'));",
 							"            pm.test(\"Connection is keep-alive\", () => pm.expect(pm.request.headers.get('connection')).to.eql('keep-alive'));",
 							"            pm.test(\"Request is using HTTPS\", () => pm.expect(pm.request.url.protocol).to.eql('https'));",
+							"        },",
+							"        additionalBodyTest: () => {",
+							"            const jsonData = pm.response.json();",
+							"            const brands = jsonData.data.map(brand => brand.title);",
+							"            const receivedBrands = jsonData.data.map(brand => brand.title);",
+							"",
+							"            pm.test(\"Response body contains expected car brands\", () => {",
+							"                const expectedBrands = [\"Audi\", \"BMW\", \"Ford\", \"Porsche\", \"Fiat\"];",
+							"                pm.expect(receivedBrands).to.have.members(expectedBrands);",
+							"            });",
+							"",
+							"            jsonData.data.forEach(brand => {",
+							"                pm.test(`Brand ${brand.title} (ID: ${brand.id}) has id, title, and logoFilename`, () => {",
+							"                    pm.expect(brand).to.have.keys(['id', 'title', 'logoFilename']);",
+							"                    console.log(`Brand: ${brand.title}, ID: ${brand.id}`);",
+							"                });",
+							"            });",
 							"        }",
 							"    };",
 							"    Object.values(tests).forEach(test => test());",
-							"})();"
+							"})();",
+							""
 						],
 						"type": "text/javascript",
-						"packages": {},
-						"id": "0b29d80f-2cea-47a0-9ab5-ede1751f037b"
+						"packages": {}
 					}
 				}
 			],
@@ -267,6 +286,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
+						"id": "61b09240-7d05-4f0e-9874-bded80a27348",
 						"exec": [
 							"(function() {",
 							"    if (!pm.collectionVariables.get(\"carBrandId\")) {",
@@ -275,13 +295,13 @@
 							"})();"
 						],
 						"type": "text/javascript",
-						"packages": {},
-						"id": "61b09240-7d05-4f0e-9874-bded80a27348"
+						"packages": {}
 					}
 				},
 				{
 					"listen": "test",
 					"script": {
+						"id": "a9b79bed-1bdf-467d-a583-168e1e527e5a",
 						"exec": [
 							"var jsonData = pm.response.json();",
 							"var brandId = pm.collectionVariables.get(\"carBrandId\");",
@@ -298,6 +318,7 @@
 							"} else {",
 							"    throw new Error(\"No model found for the given carBrandId.\");",
 							"}",
+							"",
 							"(function() {",
 							"    const tests = {",
 							"        basic: () => {",
@@ -327,7 +348,7 @@
 							"            const expectedModels = [\"TT\", \"R8\", \"Q7\", \"A6\", \"A8\", \"3\", \"5\", \"X5\", \"X6\", \"Z3\", \"Fiesta\", \"Focus\", \"Fusion\", \"Mondeo\", \"Sierra\", \"911\", \"Cayenne\", \"Panamera\", \"Palio\", \"Ducato\", \"Panda\", \"Punto\", \"Scudo\"];",
 							"            const receivedModels = jsonData.data.map(model => model.title);",
 							"            pm.test(\"Response body contains expected car models\", () => pm.expect(receivedModels).to.have.members(expectedModels));",
-							"            jsonData.data.forEach(model => pm.test(\"Each model has id, carBrandId, and title\", () => pm.expect(model).to.have.keys(['id', 'carBrandId', 'title'])));",
+							"            jsonData.data.forEach(model => pm.test(`Model ${model.title} (ID: ${model.id}) has id, carBrandId, and title`, () => pm.expect(model).to.have.keys(['id', 'carBrandId', 'title'])));",
 							"        },",
 							"        network: () => {",
 							"            const jsonData = pm.response.json();",
@@ -359,11 +380,11 @@
 							"        }",
 							"    };",
 							"    Object.values(tests).forEach(test => test());",
-							"})();"
+							"})();",
+							""
 						],
 						"type": "text/javascript",
-						"packages": {},
-						"id": "a9b79bed-1bdf-467d-a583-168e1e527e5a"
+						"packages": {}
 					}
 				}
 			],
