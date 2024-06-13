@@ -666,6 +666,18 @@
 			"value": ""
 		},
 		{
+			"key": "mileage",
+			"value": ""
+		},
+		{
+			"key": "liters",
+			"value": ""
+		},
+		{
+			"key": "totalCost",
+			"value": ""
+		},
+		{
 			"key": "carBrandId",
 			"value": ""
 		},
@@ -687,18 +699,6 @@
 		},
 		{
 			"key": "initialMileage",
-			"value": ""
-		},
-		{
-			"key": "mileage",
-			"value": ""
-		},
-		{
-			"key": "liters",
-			"value": ""
-		},
-		{
-			"key": "totalCost",
 			"value": ""
 		},
 		{
