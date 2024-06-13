@@ -3,9 +3,7 @@
 		"_postman_id": "97135257-9b04-444b-b3be-b5f71c78007e",
 		"name": "Car API Collection",
 		"description": "Collection for interacting with the Car API Add git integration",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "1742778",
-		"_collection_link": "https://www.postman.com/leoteam-api/workspace/lesson19/collection/1742778-97135257-9b04-444b-b3be-b5f71c78007e?action=share&source=collection_link&creator=1742778"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
@@ -97,7 +95,8 @@
 							"})();"
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"id": "715b6107-2c6a-4b97-b319-44b03f3454a6"
 					}
 				},
 				{
@@ -140,10 +139,15 @@
 							"})();"
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"id": "81631e4f-5da1-4080-9d6b-fc14e67368a5"
 					}
 				}
 			],
+			"id": "ef3f4c66-26d1-48bd-902d-587ceb5ba0a4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -163,16 +167,7 @@
 					"mode": "raw",
 					"raw": "{{signupRequestBody}}"
 				},
-				"url": {
-					"raw": "{{baseUrl}}/auth/signup",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"auth",
-						"signup"
-					]
-				}
+				"url": "{{baseUrl}}/auth/signup"
 			},
 			"response": []
 		},
@@ -250,23 +245,19 @@
 							"})();"
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"id": "0b29d80f-2cea-47a0-9ab5-ede1751f037b"
 					}
 				}
 			],
+			"id": "01983cc1-c346-4206-91c6-0f3431deecb9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "{{baseUrl}}/cars/brands",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"cars",
-						"brands"
-					]
-				}
+				"url": "{{baseUrl}}/cars/brands"
 			},
 			"response": []
 		},
@@ -284,7 +275,8 @@
 							"})();"
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"id": "61b09240-7d05-4f0e-9874-bded80a27348"
 					}
 				},
 				{
@@ -370,23 +362,19 @@
 							"})();"
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"id": "a9b79bed-1bdf-467d-a583-168e1e527e5a"
 					}
 				}
 			],
+			"id": "01dd163b-3487-4d3d-9448-1aa25b76fb8b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "{{baseUrl}}/cars/models",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"cars",
-						"models"
-					]
-				}
+				"url": "{{baseUrl}}/cars/models"
 			},
 			"response": []
 		},
@@ -404,7 +392,8 @@
 							"})();"
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"id": "bbb73305-3fc4-488b-8467-f3823f3b40d1"
 					}
 				},
 				{
@@ -476,10 +465,15 @@
 							"})();"
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"id": "90c43e53-73f6-4395-9bc3-7f0fd2d69e19"
 					}
 				}
 			],
+			"id": "a6016bba-3b6d-4225-a06e-b4296326d442",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -492,15 +486,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{baseUrl}}/cars",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"cars"
-					]
-				}
+				"url": "{{baseUrl}}/cars"
 			},
 			"response": []
 		},
@@ -546,7 +532,8 @@
 							"})();"
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"id": "4e6aaff0-db5e-40f0-bf32-42dc3a66782f"
 					}
 				},
 				{
@@ -622,10 +609,15 @@
 							""
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"id": "63020660-4666-4018-b475-be44e7607e6f"
 					}
 				}
 			],
+			"id": "e5c12baa-8f37-4ca1-a96e-b4b7f6037869",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "POST",
 				"header": [
@@ -647,15 +639,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{baseUrl}}/expenses",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"expenses"
-					]
-				}
+				"url": "{{baseUrl}}/expenses"
 			},
 			"response": []
 		}
@@ -682,6 +666,18 @@
 			"value": ""
 		},
 		{
+			"key": "mileage",
+			"value": ""
+		},
+		{
+			"key": "liters",
+			"value": ""
+		},
+		{
+			"key": "totalCost",
+			"value": ""
+		},
+		{
 			"key": "carBrandId",
 			"value": ""
 		},
@@ -703,18 +699,6 @@
 		},
 		{
 			"key": "initialMileage",
-			"value": ""
-		},
-		{
-			"key": "mileage",
-			"value": ""
-		},
-		{
-			"key": "liters",
-			"value": ""
-		},
-		{
-			"key": "totalCost",
 			"value": ""
 		},
 		{
