@@ -680,6 +680,34 @@
 		{
 			"key": "carModelName",
 			"value": ""
+		},
+		{
+			"key": "carId",
+			"value": ""
+		},
+		{
+			"key": "initialMileage",
+			"value": ""
+		},
+		{
+			"key": "mileage",
+			"value": ""
+		},
+		{
+			"key": "liters",
+			"value": ""
+		},
+		{
+			"key": "totalCost",
+			"value": ""
+		},
+		{
+			"key": "updatedMileageAt",
+			"value": ""
+		},
+		{
+			"key": "carInfo",
+			"value": ""
 		}
 	]
 }
