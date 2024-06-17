@@ -663,6 +663,70 @@
 				"url": "{{baseUrl}}/expenses"
 			},
 			"response": []
+		},
+		{
+			"name": "Delete current user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e88457d9-0f0d-4506-8a62-e6bf2c0fe700",
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response is an object\", function() {\r",
+							"    pm.expect(pm.response.json()).to.be.an(\"object\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Status is ok\", function () {\r",
+							"    pm.expect(jsonData.status).to.eql(\"ok\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// перевіряємо на відповідність json схемі\r",
+							"const schemaDelete = {\r",
+							"  \"type\": \"object\",\r",
+							"  \"properties\": {\r",
+							"    \"status\": {\r",
+							"      \"type\": \"string\",\r",
+							"      \"enum\": [\"ok\"]\r",
+							"    }\r",
+							"  },\r",
+							"  \"required\": [\"status\"]\r",
+							"};\r",
+							"\r",
+							"pm.test(\"Check JSON schema\", () => {\r",
+							"    pm.response.to.have.jsonSchema(schemaDelete);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "9b45a953-fd05-4a86-8b1c-c7df784f8379",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "{{baseUrl}}/users"
+			},
+			"response": []
 		}
 	],
 	"variable": [
