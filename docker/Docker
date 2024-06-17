@@ -1,0 +1,19 @@
+FROM jenkins/jenkins:lts
+
+# Встановлення необхідних пакетів
+USER root
+RUN apt-get update && apt-get install -y \
+    curl \
+    nodejs \
+    npm \
+    unzip
+
+# Встановлення Newman та репортера Allure для Newman
+RUN npm install -g newman newman-reporter-allure
+
+# Встановлення Allure
+RUN curl -sL https://github.com/allure-framework/allure2/releases/download/2.19.0/allure-2.19.0.zip -o /tmp/allure.zip \
+    && unzip /tmp/allure.zip -d /opt/ \
+    && ln -s /opt/allure-2.19.0/bin/allure /usr/bin/allure
+
+USER jenkins

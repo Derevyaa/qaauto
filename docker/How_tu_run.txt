@@ -1,0 +1,28 @@
+Встановіть Docker, якщо він ще не встановлений.
+Відкрийте термінал і перейдіть до директорії, де знаходиться ваш Docker-файл. У вашому випадку Docker-файл знаходиться за шляхом /mnt/data/Docker.
+
+Побудуйте Docker-образ за допомогою команди:
+docker build -t jenkins-with-tools -f /mnt/data/Docker .
+Запустіть контейнер на основі створеного образу:
+
+docker run -d --name jenkins-with-tools -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins-with-tools --prefix=/jenkins
+Відкрийте у браузері адресу http://localhost:8080. Тут ви зможете налаштувати Jenkins і почати використовувати його з встановленими пакетами.
+
+Отримайте початковий пароль адміністратора для Jenkins:
+docker exec jenkins-with-tools cat /var/jenkins_home/secrets/initialAdminPassword
+Команда docker exec jenkins-with-tools cat /var/jenkins_home/secrets/initialAdminPassword використовується для отримання початкового пароля адміністратора для Jenkins, що працює всередині Docker-контейнера.
+
+Ось повний список команд для зручності:
+# Побудувати Docker-образ
+docker build -t jenkins-with-tools -f /mnt/data/Docker .
+
+# Запустити контейнер
+docker run -d --name jenkins-with-tools -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins-with-tools --prefix=/jenkins
+
+# Відкрити Jenkins в браузері
+http://localhost:8080
+
+# Отримати початковий пароль адміністратора
+docker exec jenkins-with-tools cat /var/jenkins_home/secrets/initialAdminPassword
+Виконайте ці кроки, і ви зможете налаштувати Jenkins у Docker-контейнері.
+
