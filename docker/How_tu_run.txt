@@ -2,7 +2,7 @@
 Відкрийте термінал і перейдіть до директорії, де знаходиться ваш Docker-файл. У вашому випадку Docker-файл знаходиться за шляхом /mnt/data/Docker.
 
 Побудуйте Docker-образ за допомогою команди:
-docker build -t jenkins-with-tools -f /mnt/data/Docker .
+docker build -t jenkins-with-tools .
 Запустіть контейнер на основі створеного образу:
 
 docker run -d --name jenkins-with-tools -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins-with-tools --prefix=/jenkins
